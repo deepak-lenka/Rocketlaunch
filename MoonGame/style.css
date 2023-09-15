@@ -1,0 +1,62 @@
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+    background-image: url(background.jpg);
+}
+
+button {
+    margin: 10px;
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #007BFF;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+}
+
+button#return {
+    position: absolute;
+    left: 10px; /* Adjust the left position as needed */
+    bottom: 10px; /* Adjust the bottom position as needed */
+}
+
+/* Move the Launch Rocket button to the right corner */
+button#launch {
+    position: absolute;
+    top: 10px; /* Adjust the top position as needed */
+    right: 10px; /* Adjust the right position as needed */
+}
+
+#rocket {
+    width: 70px;
+    height: 200px; /* Adjust the height to match your rocket image */
+    background-image: url('rocket.png'); /* Replace with your rocket image filename */
+    background-size: cover;
+    position: absolute;
+    bottom: 0; /* You may need to adjust this value based on your rocket image */
+    transform: translateY(0); /* Initial position */
+    transition: transform 4s linear; /* Updated transition property */
+}
+
+/* Additional styles for the rocket when launching */
+#rocket.launching {
+    transform: translateY(-100vh); /* Initial position when launching */
+    animation: rocketLaunch 4s linear forwards; /* Apply the launch animation */
+}
+
+/* Add these styles to create the engine ignition effect */
+@keyframes rocketIgnition {
+    0% {
+        opacity: 0.5;
+        transform: translateY(10px) scale(1.2);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(-10px) scale(1);
+    }
+}
+
